@@ -1,0 +1,79 @@
+type Query {
+  developers: [Developer!]
+  developer(id: String!): Developer!
+  investors: [Investor!]
+  investor(id: String!): Investor!
+  proposals: [Proposal!]
+  investments: [Investment]!
+}
+
+type Investor {
+  id: ID
+  investments: [Investment]
+  email: String!
+  firstName: String!
+  lastName: String!
+  dob: String!
+}
+
+type Developer {
+  id: ID
+  proposals: [Proposal]
+  email: String!
+  firstName: String!
+  lastName: String!
+  dob: String!
+}
+
+type Proposal {
+  id: ID
+  amount: String!
+  pictures: String!
+  documents: String!
+  developer: Developer!
+}
+
+type Investment {
+  id: ID!
+  investAmount: String!
+  paid: Boolean!
+  partner: Boolean!
+  returned: Boolean!
+  investor: Investor!
+}
+
+input addDeveloperInput {
+  firstName: String!
+  email: String!
+  lastName: String!
+  dob: String!
+}
+
+input addInvestorInput {
+  firstName: String!
+  email: String!
+  lastName: String!
+  dob: String!
+}
+
+input addProposalInput {
+  amount: String
+  pictures: String
+  documents: String
+  developer: String
+}
+
+input addInvestmentInput {
+  investAmount: String!
+  partner: Boolean!
+  paid: Boolean!
+  returned: Boolean!
+  investor: String!
+}
+
+type Mutation {
+  addDeveloper(data: addDeveloperInput): Developer!
+  addInvestor(data: addInvestorInput): Investor!
+  addProposal(data: addProposalInput): Proposal!
+  addInvestment(data: addInvestmentInput): Investment
+}

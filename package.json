@@ -1,0 +1,25 @@
+{
+  "name": "dev_lend_ql",
+  "version": "0.0.1",
+  "description": "a graphql api that powers a platform that helps developers get funding from the public",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js --ext js,graphql,json --exec babel-node"
+  },
+  "keywords": [
+    "\\"
+  ],
+  "author": "Adams Lee",
+  "license": "ISC",
+  "dependencies": {
+    "graphql-yoga": "^1.18.3",
+    "mongoose": "^5.12.10"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.3",
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.14.2",
+    "@babel/plugin-transform-object-assign": "^7.12.13",
+    "@babel/preset-env": "^7.14.2"
+  }
+}
